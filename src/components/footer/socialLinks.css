@@ -1,0 +1,25 @@
+.sprite {
+  background-image: url('../../images/spritesheet.png');
+  background-repeat: no-repeat;
+  display: block;
+}
+.sprite.sprite-chat {
+  background-position: -5px -5px;
+  width: 32px;
+  height: 32px;
+}
+.sprite.sprite-facebook {
+  background-position: -47px -5px;
+  width: 32px;
+  height: 32px;
+}
+.sprite.sprite-google_plus {
+  background-position: -5px -47px;
+  width: 32px;
+  height: 32px;
+}
+.sprite.sprite-twitter {
+  background-position: -47px -47px;
+  width: 32px;
+  height: 32px;
+}
