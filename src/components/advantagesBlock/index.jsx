@@ -1,12 +1,12 @@
 import React from 'react';
 import Advantages from '../advantages';
 import Banner from '../banner';
-import './advantagesBlock.css';
+import './advantagesBlock.less';
 
 const AdvantagesBlock = () => (
   <div className="advantagesBlock-content">
-      <Advantages />
-      <Banner />
+    <Advantages />
+    <Banner />
   </div>
 );
 

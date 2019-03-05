@@ -3,7 +3,7 @@ import NavigateBar from '../navigateBar';
 import SearchPanel from '../searchPanel';
 import Multicard from '../multicard';
 import AdvantagesBlock from '../advantagesBlock';
-import './content.css';
+import './content.less';
 
 const Content = () => (
   <>
@@ -12,7 +12,7 @@ const Content = () => (
     <Multicard />
     <AdvantagesBlock />
   </>
-  
+
 );
 
 export default Content;

@@ -1,3 +1,17 @@
 {
-    "extends": "airbnb"
-  }
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+      "mocha": true,
+      "browser": true   
+  },
+  "rules": {
+    "jsx-a11y/label-has-for": [ 2, {
+        "components": [ "Label" ],
+        "required": {
+            "every": [ "nesting", "id" ]
+        },
+        "allowChildren": false
+    }]
+}
+}
