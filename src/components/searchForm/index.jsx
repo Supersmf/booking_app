@@ -1,139 +1,82 @@
 import React, { Component } from 'react';
-import Calendar from 'rc-calendar';
-import DatePicker from 'rc-calendar/lib/Picker';
-import 'rc-calendar/assets/index.css';
-import moment from 'moment';
+// import moment from 'moment';
+import DatePicker from 'react-datepicker';
+import FormRadioBtn from './formRadioBtn';
+import FormDataList from './formDataList';
+import PassengersSelect from './passengersSelect';
+import Calendar from './calendar';
+
+import 'react-datepicker/dist/react-datepicker.css';
 import './searchForm.less';
+
+const land = [
+  {
+    id: 1,
+    country: 'Australia',
+    code: 'AU',
+  },
+  {
+    id: 2,
+    country: 'Canada',
+    code: 'CA',
+  },
+  {
+    id: 3,
+    country: 'USA',
+    code: 'US',
+  },
+];
 
 class SearchForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      departTime: moment(),
-      returnTime: moment(),
+      departTime: new Date(),
+      returnTime: new Date(),
     };
   }
 
+  // handleDepartDate = (newTime) => {
+  //   this.setState({ departTime: newTime });
+  // }
+
   render() {
-    const calendar = (<Calendar />);
     const { departTime, returnTime } = this.state;
     return (
       <div className="search-form">
         <h3 className="search-form_title">Search Flight</h3>
         <form>
           <ul className="search-form_radio-group">
-            <li className="search-form_radio-group_btn">
-              <label htmlFor="Oneway">
-                <input type="radio" id="Oneway" name="gropRadio" checked onChange={() => ''} />
-                Oneway
-              </label>
-            </li>
-            <li className="search-form_radio-group_btn">
-              <label htmlFor="Roundtrip">
-                <input type="radio" id="Roundtrip" name="gropRadio" />
-              Roundtrip
-              </label>
-            </li>
+            <FormRadioBtn title="Oneway" groupName="groupRadio" checked />
+            <FormRadioBtn title="Roundtrip" groupName="groupRadio" />
           </ul>
           <ul className="search-form_input-group">
-            <li className="search-form_input-group-select">
-              <p htmlFor="countryFrom" className="search-form_input-group-select_label">From</p>
-              <input
-                id="countryFrom"
-                type="text"
-                name="countryFrom"
-                list="fromCity"
-                className="search-form_input-group-select_select"
-              />
-              <datalist id="fromCity">
-                <option value="Australia">AU</option>
-                <option value="Canada">CA</option>
-                <option value="USA">US</option>
-              </datalist>
-            </li>
-            <li className="search-form_input-group-select">
-              <p htmlFor="countryTo" className="search-form_input-group-select_label">To</p>
-              <input
-                id="countryTo"
-                name="countryTo"
-                list="toCity"
-                className="search-form_input-group-select_select"
-              />
-              <datalist id="toCity">
-                <option value="Australia">AU</option>
-                <option value="Canada">CA</option>
-                <option value="USA">US</option>
-              </datalist>
-            </li>
+            <FormDataList title="From" data={land} />
+            <FormDataList title="To" data={land} />
           </ul>
           <ul className="search-form_input-group search-form_input-group-calendar">
-            <li className="search-form_input-group-select search-form_input-group-select-calendar">
+            <Calendar title="Depart" fnc={newTime => this.setState({ departTime: newTime })} time={departTime} />
+            {/* <li className="search-form_input-group-select search-form_input-group-select-calendar">
               <p htmlFor="Depart" className="search-form_input-group-select_label">Depart</p>
               <DatePicker
-                animation="slide-up"
-                value={departTime}
-                disabled={false}
-                calendar={calendar}
+                selected={departTime}
                 onChange={newTime => this.setState({ departTime: newTime })}
-              >
-                {
-                      ({ value }) => (
-                        <input
-                          value={value ? value.format('YYYY-MM-DD') : ''}
-                          onChange={() => ''}
-                          className="search-form_input-group-calendar-input"
-                        />
-                      )
-                  }
-              </DatePicker>
-            </li>
+                className="search-form_input-group-calendar-input"
+              />
+            </li> */}
             <li className="search-form_input-group-select search-form_input-group-select-calendar">
               <p htmlFor="Return" className="search-form_input-group-select_label">Return</p>
               <DatePicker
-                name="Return"
-                animation="slide-up"
-                value={returnTime}
-                disabled={false}
-                calendar={calendar}
+                selected={returnTime}
                 onChange={newTime => this.setState({ returnTime: newTime })}
-              >
-                {
-                      ({ value }) => (
-                        <input
-                          value={value ? value.format('YYYY-MM-DD') : ''}
-                          onChange={() => ''}
-                          className="search-form_input-group-calendar-input"
-                        />
-                      )
-                  }
-              </DatePicker>
+                className="search-form_input-group-calendar-input"
+              />
             </li>
           </ul>
           <ul className="search-form_input-group-count ">
-            <li className="search-form_input-group-count_count">
-              <p className="search-form_input-group-select_label">Adults</p>
-              <select id="Adults" name="Adults" className="search-form_input-group-count_select">
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-              </select>
-            </li>
-            <li className="search-form_input-group-count_count">
-              <p htmlFor="Children" className="search-form_input-group-select_label">Children</p>
-              <select id="Children" name="Children" className="search-form_input-group-count_select">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-            </li>
-            <li className="search-form_input-group-count_count">
-              <p htmlFor="Infant" className="search-form_input-group-select_label">Infant</p>
-              <select id="Infant" name="Infant" className="search-form_input-group-count_select">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-              </select>
-            </li>
+            <PassengersSelect title="Adults" count={5} min={1} />
+            <PassengersSelect title="Children" count={5} />
+            <PassengersSelect title="Infant" count={5} />
           </ul>
           <button type="submit" className="search-form_submit-btn">Find Flight</button>
         </form>

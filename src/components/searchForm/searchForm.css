@@ -22,11 +22,6 @@
   padding: 0 35px;
   margin: 0;
 }
-.search-form_radio-group_btn {
-  display: inline-block;
-  font-size: 1.2rem;
-  margin-right: 30px;
-}
 input[type="radio"] {
   transform: scale(1.4);
   margin-right: 5px;
@@ -78,7 +73,6 @@ input[type="radio"] {
   cursor: pointer;
 }
 .search-form_input-group-count {
-  margin-top: 45px;
   padding-left: 28px;
   padding-right: 15px;
   width: 80%;
@@ -87,8 +81,9 @@ input[type="radio"] {
 }
 .search-form_input-group-count_select {
   margin: 0px 30px 10px 0;
-  width: 100px;
-  height: 40px;
+  width: 80px;
+  font-size: 1.5rem;
+  text-align: center;
 }
 .search-form_input-group-count_count {
   margin-top: 12px;
