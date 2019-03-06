@@ -3,16 +3,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './linkBox.less';
 
-const Advantages = ({ links }) => (
+const LinkBox = ({ links }) => (
   <ul className="advantages-container_listGroup_list">
-    { links.map((link, index) => (
-      <li key={index}><a href="https://#" className="advantages-container_listGroup_list_link">{link}</a></li>
+    { links.map(({ id, text, href }) => (
+      <li key={id}>
+        <a href={href} className="advantages-container_listGroup_list_link">
+          {text}
+        </a>
+      </li>
     ))}
   </ul>
 );
 
-Advantages.propTypes = {
-  links: PropTypes.arrayOf(PropTypes.string).isRequired,
+LinkBox.propTypes = {
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      text: PropTypes.string,
+      href: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
-export default Advantages;
+export default LinkBox;
