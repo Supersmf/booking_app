@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 // import './calendar.less';
 
-const Calendar = ({ title, func, time }) => (
+const Calendar = ({ title, onChooseDate, time }) => (
   <li className="search-form_input-group-select search-form_input-group-select-calendar">
     <p htmlFor="Depart" className="search-form_input-group-select_label">{title}</p>
     <DatePicker
       selected={time}
-      onChange={func}
+      onChange={onChooseDate}
       className="search-form_input-group-calendar-input"
     />
   </li>
@@ -16,13 +17,13 @@ const Calendar = ({ title, func, time }) => (
 
 Calendar.propTypes = {
   title: PropTypes.string,
-  func: PropTypes.func,
+  onChooseDate: PropTypes.func,
   time: PropTypes.instanceOf(Date),
 };
 
 Calendar.defaultProps = {
   title: 'RadioBtn',
-  func: () => '',
+  onChooseDate: () => '',
   time: new Date(),
 };
 

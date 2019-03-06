@@ -7,9 +7,11 @@ module.exports = {
     path: path.join(__dirname, '/dist'),
     filename: 'index-bundle.js',
   },
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
+        enforce: 'pre',
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader'],
