@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
-import './linkBox.less';
+import './LinkBox.less';
 
 const LinkBox = ({ links }) => (
   <ul className="advantages-container_listGroup_list">

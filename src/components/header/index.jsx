@@ -1,5 +1,5 @@
 import React from 'react';
-import './header.less';
+import './Header.less';
 
 const Header = () => (
   <div className="header">

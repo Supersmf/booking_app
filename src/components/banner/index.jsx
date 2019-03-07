@@ -1,5 +1,5 @@
 import React from 'react';
-import './banner.less';
+import './Banner.less';
 
 const Banner = () => (
   <div className="banner-container">

@@ -1,6 +1,6 @@
 import React from 'react';
-import TourCard from '../tourCard';
-import './multicard.less';
+import TourCard from '../TourCard';
+import './Multicard.less';
 
 const Multicard = () => (
   <div className="multicard-content">

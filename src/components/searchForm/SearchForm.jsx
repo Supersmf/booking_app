@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { addSearchData } from '../../actions/actionCreator';
 import FormRadioBtn from './FormRadioBtn';
 import FormDataList from './FormDataList';
 import PassengersSelect from './PassengersSelect';
@@ -167,13 +165,4 @@ SearchForm.propTypes = {
   country: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-const mapStateToProps = state => ({
-  form: state.searchData,
-  country: state.country,
-});
-
-const mapDispatchToProps = {
-  addFormData: addSearchData,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
+export default SearchForm;

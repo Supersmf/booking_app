@@ -1,6 +1,7 @@
 import React from 'react';
 import beachImg from '../../images/beach1.jpg';
-import './tourCard.less';
+import './TourCard.less';
+
 
 const TourCard = () => (
   <div className="tourCard-container">

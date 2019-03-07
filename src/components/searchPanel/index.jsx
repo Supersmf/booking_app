@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchForm from '../searchForm';
-import FindOutMore from '../findOutMore';
-import './searchPanel.less';
+import SearchForm from '../SearchForm';
+import FindOutMore from '../FindOutMore';
+import './SearchPanel.less';
 
 const SearchPanel = () => (
   <div className="content_form">

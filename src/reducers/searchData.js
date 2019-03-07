@@ -1,22 +1,22 @@
-import { ADD_SEARCH_DATA } from '../constants/constants';
+import { handleActions, combineActions } from 'redux-actions';
+import { addSearchData } from '../actions/actionCreator';
 
-const searchData = (state = [], {
-  type, from, to, departDate, returnDate, adults, children, infant,
-}) => {
-  switch (type) {
-    case ADD_SEARCH_DATA:
-      return [{
-        from,
-        to,
-        departDate,
-        returnDate,
-        adults,
-        children,
-        infant,
+const defaultState = [];
+
+const searchData = handleActions(
+  {
+    [combineActions(addSearchData)]: (
+      state,
+      {
+        payload: {
+          from, to, departDate, returnDate, adults, children, infant,
+        },
       },
-      ];
-    default: return state;
-  }
-};
+    ) => ({
+      ...state, from, to, departDate, returnDate, adults, children, infant,
+    }),
+  },
+  defaultState,
+);
 
 export default searchData;

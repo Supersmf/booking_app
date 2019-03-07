@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './formRadioBtn.less';
+import './FormRadioBtn.less';
 
 const FormRadioBtn = ({
   title, onCheck, groupName, checked,

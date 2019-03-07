@@ -1,14 +1,19 @@
 import React from 'react';
-import NavigateBar from '../navigateBar';
-import SearchPanel from '../searchPanel';
-import Multicard from '../multicard';
-import AdvantagesBlock from '../advantagesBlock';
-import './content.less';
+import { Switch, Route } from 'react-router-dom';
+import NavigateBar from '../NavigateBar';
+import SearchPanel from '../SearchPanel';
+import SearchFlight from '../SearchFlight';
+import Multicard from '../Multicard';
+import AdvantagesBlock from '../AdvantagesBlock';
+import './Content.less';
 
 const Content = () => (
   <>
     <NavigateBar />
-    <SearchPanel />
+    <Switch>
+      <Route exact path="/" component={SearchPanel} />
+      <Route path="/search" component={SearchFlight} />
+    </Switch>
     <Multicard />
     <AdvantagesBlock />
   </>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './formDataList.less';
+import './FormDataList.less';
 
 const FormDataList = ({ title, data, onCountryChoose }) => (
   <li className="search-form_input-group-select">

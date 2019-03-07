@@ -1,5 +1,5 @@
 import React from 'react';
-import './footer.less';
+import './Footer.less';
 
 const Footer = () => (
   <div className="footer">

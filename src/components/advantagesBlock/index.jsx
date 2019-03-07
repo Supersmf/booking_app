@@ -1,22 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Advantages from '../advantages';
-import Banner from '../banner';
-import './advantagesBlock.less';
+import Advantages from '../Advantages';
+import Banner from '../Banner';
+import './AdvantagesBlock.less';
 
-// eslint-disable-next-line react/prefer-stateless-function
-class AdvantagesBlock extends Component {
-  render() {
-    const { links } = this.props;
-    return (
-      <div className="advantagesBlock-content">
-        <Advantages links={links} />
-        <Banner />
-      </div>
-    );
-  }
-}
+const AdvantagesBlock = ({ links }) => (
+  <div className="advantagesBlock-content">
+    <Advantages links={links} />
+    <Banner />
+  </div>
+);
 
 AdvantagesBlock.propTypes = {
   links: PropTypes.arrayOf(

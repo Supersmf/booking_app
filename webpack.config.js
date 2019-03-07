@@ -6,8 +6,12 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'index-bundle.js',
+    publicPath: '/',
   },
   devtool: 'eval-source-map',
+  devServer: {
+    historyApiFallback: true,
+  },
   module: {
     rules: [
       {

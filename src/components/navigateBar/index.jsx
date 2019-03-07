@@ -1,5 +1,5 @@
 import React from 'react';
-import './navigateBar.less';
+import './NavigateBar.less';
 
 const NavigateBar = () => (
   <div className="navigateBar">

@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './components/header';
-import Footer from './components/footer';
-import Content from './components/content';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Content from './components/Content';
 import './styles/App.less';
 
 const App = () => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LinkBox from './linkBox';
-import './advantages.less';
+import './Advantages.less';
 
 const Advantages = ({ links }) => (
   <div className="advantages-container">
