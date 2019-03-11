@@ -4,9 +4,9 @@ import './Banner.less';
 const Banner = () => (
   <div className="banner-container">
     <h2 className="banner-container_title">
-YOUR BANNER
+      YOUR BANNER
       <br />
-HERE
+      HERE
     </h2>
   </div>
 );

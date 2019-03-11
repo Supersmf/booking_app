@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Advantages from '../Advantages';
 import Banner from '../Banner';
@@ -22,8 +21,4 @@ AdvantagesBlock.propTypes = {
   ).isRequired,
 };
 
-const mapStateToProps = state => ({
-  links: state.advantagesLink,
-});
-
-export default connect(mapStateToProps)(AdvantagesBlock);
+export default AdvantagesBlock;

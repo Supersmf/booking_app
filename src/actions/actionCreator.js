@@ -1,5 +1,7 @@
 import { createAction } from 'redux-actions';
-import { ADD_SEARCH_DATA, ADD_ADVANTAGES_LINK, ADD_COUNTRY } from '../constants';
+import {
+  ADD_SEARCH_DATA, ADD_ADVANTAGES_LINK, ADD_COUNTRY, ADD_TOUR, ADD_FLIGHT,
+} from '../constants';
 
 const addSearchData = createAction(
   ADD_SEARCH_DATA,
@@ -26,8 +28,20 @@ const addCountry = createAction(
   () => ({}),
 );
 
+const addTour = createAction(
+  ADD_TOUR,
+  () => ({}),
+);
+
+const addFlight = createAction(
+  ADD_FLIGHT,
+  () => ({}),
+);
+
 export {
   addSearchData,
   addAdvantagesLinks,
   addCountry,
+  addTour,
+  addFlight,
 };
