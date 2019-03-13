@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import beachImg from '../../images/beach1.jpg';
+// import beachImg from '../../images/beach1.jpg';
 import './TourCard.less';
 
-const TourCard = ({ tour: { name, price, description } }) => (
+const TourCard = ({
+  tour: {
+    name, price, description, image,
+  },
+}) => (
   <div className="tourCard-container">
     <h5 className="tourCard-container_title">{name}</h5>
     <div className="tourCard-container_imgContainer">
-      <img src={beachImg} alt="beach" className="tourCard-container_imgContainer_img" />
+      <img src={image} alt="beach" className="tourCard-container_imgContainer_img" />
     </div>
     <p className="tourCard-container_priceText">
       Price

@@ -1,7 +1,7 @@
-import { handleActions, combineActions } from 'redux-actions';
-import { addCountry } from '../actions/actionCreator';
+import { handleActions } from 'redux-actions';
+import { ADD_COUNTRY } from '../constants';
 
-const defaultState = [
+const initialState = [
   {
     id: 1,
     country: 'Australia',
@@ -20,10 +20,8 @@ const defaultState = [
 ];
 
 const country = handleActions(
-  {
-    [combineActions(addCountry)]: () => ({}),
-  },
-  defaultState,
+  { [ADD_COUNTRY]: () => ({}) },
+  initialState,
 );
 
 export default country;

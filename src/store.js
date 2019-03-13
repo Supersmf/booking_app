@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { createStore, compose } from 'redux';
 import rootReducer from './reducers/index';
 

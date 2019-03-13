@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TourCard from '../TourCard';
-import './Multicard.less';
+import './MultiСard.less';
 
-const Multicard = ({ tours }) => (
-  <div className="multicard-content">
-    <h2 className="multicard-content_title">Featured Flight</h2>
-    <div className="multicard-content_card-group">
+const MultiСard = ({ tours }) => (
+  <div className="MultiСard-content">
+    <h2 className="MultiСard-content_title">Featured Flight</h2>
+    <div className="MultiСard-content_card-group">
       {tours.map(tour => (
         <TourCard key={tour.id} tour={tour} />
       ))}
@@ -14,7 +14,7 @@ const Multicard = ({ tours }) => (
   </div>
 );
 
-Multicard.propTypes = {
+MultiСard.propTypes = {
   tours: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -24,4 +24,4 @@ Multicard.propTypes = {
   ).isRequired,
 };
 
-export default Multicard;
+export default MultiСard;

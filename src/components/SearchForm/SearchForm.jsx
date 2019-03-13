@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// import moment from 'moment';
 import { Link } from 'react-router-dom';
 import FormRadioBtn from './FormRadioBtn';
 import FormDataList from './FormDataList';
@@ -67,11 +68,14 @@ class SearchForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    const { addFormData } = this.props;
+    const { addFormData, dispatchClearTicket } = this.props;
     const {
       departDate, returnDate, from,
       to, adults, children, infant, isOneway,
     } = this.state;
+
+    dispatchClearTicket({});
+
     addFormData({
       departDate,
       returnDate,
@@ -86,7 +90,7 @@ class SearchForm extends Component {
 
   render() {
     const {
-      departData, returnData, adults, children, infant,
+      departDate, returnDate, adults, children, infant,
     } = this.state;
     const { country } = this.props;
     return (
@@ -122,12 +126,12 @@ class SearchForm extends Component {
             <Calendar
               title="Depart"
               onChooseDate={this.onChooseDepartDate}
-              time={departData}
+              time={departDate}
             />
             <Calendar
               title="Return"
               onChooseDate={this.onChooseReturnDate}
-              time={returnData}
+              time={returnDate}
             />
           </ul>
           <ul className="search-form_input-group-count ">
@@ -162,6 +166,7 @@ class SearchForm extends Component {
 
 SearchForm.propTypes = {
   addFormData: PropTypes.func.isRequired,
+  dispatchClearTicket: PropTypes.func.isRequired,
   country: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

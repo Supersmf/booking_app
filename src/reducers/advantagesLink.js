@@ -1,6 +1,7 @@
-import { ADD_ADVANTAGES_LINK } from '../constants/constants';
+import { handleActions } from 'redux-actions';
+import { ADD_ADVANTAGES_LINK } from '../constants';
 
-const links = [
+const initialState = [
   {
     id: 1,
     text: 'Cash on delivery service of bus tickets in major cities',
@@ -38,21 +39,9 @@ const links = [
   },
 ];
 
-const advantagesLink = (state = links, {
-  type, id, text, href,
-}) => {
-  switch (type) {
-    case ADD_ADVANTAGES_LINK:
-      return [
-        ...state,
-        {
-          id,
-          text,
-          href,
-        },
-      ];
-    default: return state;
-  }
-};
+const country = handleActions(
+  { [ADD_ADVANTAGES_LINK]: () => ({}) },
+  initialState,
+);
 
-export default advantagesLink;
+export default country;

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { addTicket } from '../../actions/actionCreator';
-import SearchFlight from './SearchFlight';
+import SearchReturnFlight from '../SearchFlight/SearchFlight';
 
 const filter = ({ flight, searchData: { from, to } }) => (
   flight.filter((fly) => {
-    if (fly.from === from && fly.to === to) {
+    if (fly.from === to && fly.to === from) {
       return true;
     }
     return false;
@@ -21,4 +21,4 @@ const mapDispatchToProps = {
   dispatchAddTicket: addTicket,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchFlight);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchReturnFlight);

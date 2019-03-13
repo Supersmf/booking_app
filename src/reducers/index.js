@@ -4,6 +4,7 @@ import advantagesLink from './advantagesLink';
 import tours from './tours';
 import flight from './flight';
 import country from './country';
+import ticket from './ticket';
 
 const rootReducer = combineReducers({
   searchData,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   country,
   tours,
   flight,
+  ticket,
 });
 
 export default rootReducer;

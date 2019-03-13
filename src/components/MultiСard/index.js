@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Multicard from './Multicard';
+import MultiCard from './MultiСard';
 // import { addTour } from '../../actions/actionCreator';
 
 const mapStateToProps = state => ({
@@ -8,4 +8,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Multicard);
+export default connect(mapStateToProps, mapDispatchToProps)(MultiCard);

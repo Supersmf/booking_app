@@ -1,22 +1,27 @@
-import React from 'react';
+/* eslint-disable react/jsx-pascal-case */
+import React, { Fragment } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NavigateBar from '../NavigateBar';
 import SearchPanel from '../SearchPanel';
 import SearchFlight from '../SearchFlight';
-import Multicard from '../Multicard';
+import SearchReturnFlight from '../SearchReturnFlight';
+import ResultBooked from '../ResultBooked';
+import MultiСard from '../MultiСard';
 import AdvantagesBlock from '../AdvantagesBlock';
 import './Content.less';
 
 const Content = () => (
-  <>
+  <Fragment>
     <NavigateBar />
     <Switch>
       <Route exact path="/" component={SearchPanel} />
-      <Route path="/search" component={SearchFlight} />
+      <Route exact path="/search" component={SearchFlight} />
+      <Route path="/search/return" component={SearchReturnFlight} />
+      <Route path="/search/result" component={ResultBooked} />
     </Switch>
-    <Multicard />
+    <MultiСard />
     <AdvantagesBlock />
-  </>
+  </Fragment>
 
 );
 

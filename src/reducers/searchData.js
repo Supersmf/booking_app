@@ -1,22 +1,19 @@
-import { handleActions, combineActions } from 'redux-actions';
-import { addSearchData } from '../actions/actionCreator';
+import { handleActions } from 'redux-actions';
+import { ADD_SEARCH_DATA } from '../constants';
 
-const defaultState = [];
+const initialState = [];
+
+const onAddData = (state, {
+  payload: {
+    from, to, departDate, returnDate, adults, children, infant, isOneway,
+  },
+}) => ({
+  ...state, from, to, departDate, returnDate, adults, children, infant, isOneway,
+});
 
 const searchData = handleActions(
-  {
-    [combineActions(addSearchData)]: (
-      state,
-      {
-        payload: {
-          from, to, departDate, returnDate, adults, children, infant,
-        },
-      },
-    ) => ({
-      ...state, from, to, departDate, returnDate, adults, children, infant,
-    }),
-  },
-  defaultState,
+  { [ADD_SEARCH_DATA]: onAddData },
+  initialState,
 );
 
 export default searchData;

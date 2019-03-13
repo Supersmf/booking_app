@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SearchForm from './SearchForm';
-import { addSearchData } from '../../actions/actionCreator';
+import { addSearchData, clearTicket } from '../../actions/actionCreator';
 
 const mapStateToProps = state => ({
   form: state.searchData,
@@ -9,6 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   addFormData: addSearchData,
+  dispatchClearTicket: clearTicket,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
