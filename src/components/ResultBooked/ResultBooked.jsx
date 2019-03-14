@@ -3,26 +3,24 @@ import PropTypes from 'prop-types';
 import TicketBlock from './TicketBlock';
 import './ResultBooked.less';
 
-const ResultBooked = ({ tickets }) => (
-  <div className="resultBooked-content">
-    {/* {console.log(tickets)} */}
-    {tickets.map(ticket => (
-      <TicketBlock {...ticket} key={ticket.id} />
-    ))}
-    <diV>
-      {/* <p>Total</p> */}
-    </diV>
-  </div>
-);
+const ResultBooked = ({ tickets }) => {
+  tickets.reduce((sum, { price }) => console.log(price), tickets[0].price);
+  return (
+    <div className="resultBooked-content">
+      {tickets.map(ticket => (
+        <TicketBlock {...ticket} key={ticket.id} />
+      ))}
+      <div>
+        {/* {total} */}
+      </div>
+    </div>
+  );
+};
 
 ResultBooked.propTypes = {
-//   flights: PropTypes.arrayOf(PropTypes.object).isRequired,
   tickets: PropTypes.arrayOf(PropTypes.object).isRequired,
-//   isOneway: PropTypes.bool,
-//   dispatchAddTicket: PropTypes.func.isRequired,
 };
 ResultBooked.defaultProps = {
-//   isOneway: false,
 };
 
 export default ResultBooked;

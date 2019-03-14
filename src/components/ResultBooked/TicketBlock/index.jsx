@@ -4,7 +4,7 @@ import moment from 'moment';
 import './TicketBlock.less';
 
 const TicketBlock = ({
-  from, to, startTime, endTime, flight,
+  from, to, startTime, endTime, flight, price,
 }) => (
   <div className="ticketBlock-content">
     <div className="ticketBlock-content_header">Ticket</div>
@@ -14,6 +14,7 @@ const TicketBlock = ({
       <p>{`Departure: ${startTime.format('HH:mm')}`}</p>
       <p>{`Arrival: ${endTime.format('HH:mm')}`}</p>
       <p>{`Flight: ${flight}`}</p>
+      <p>{`Price: ${price}`}</p>
     </div>
   </div>
 );
@@ -24,6 +25,7 @@ TicketBlock.propTypes = {
   startTime: PropTypes.instanceOf(moment).isRequired,
   endTime: PropTypes.instanceOf(moment).isRequired,
   flight: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
 };
 
 export default TicketBlock;

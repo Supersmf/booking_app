@@ -90,7 +90,8 @@ class SearchForm extends Component {
 
   render() {
     const {
-      departDate, returnDate, adults, children, infant,
+      departDate, returnDate, adults,
+      children, infant, isOneway, from, to,
     } = this.state;
     const { country } = this.props;
     return (
@@ -128,11 +129,13 @@ class SearchForm extends Component {
               onChooseDate={this.onChooseDepartDate}
               time={departDate}
             />
-            <Calendar
-              title="Return"
-              onChooseDate={this.onChooseReturnDate}
-              time={returnDate}
-            />
+            {!isOneway ? (
+              <Calendar
+                title="Return"
+                onChooseDate={this.onChooseReturnDate}
+                time={returnDate}
+              />
+            ) : ''}
           </ul>
           <ul className="search-form_input-group-count ">
             <PassengersSelect
@@ -154,10 +157,28 @@ class SearchForm extends Component {
               onSetCount={this.onInfantSetCount}
             />
           </ul>
-          <button type="submit" onClick={this.onSubmit} className="search-form_submit-btn">
-            <Link to="search" className="search-form_submit-link">Find Flight</Link>
-          </button>
-
+          {(from && to) ? (
+            <button
+              type="submit"
+              onClick={this.onSubmit}
+              className="search-form_submit-btn"
+            >
+              <Link
+                to="search"
+                className="search-form_submit-link"
+              >
+              Find Flight
+              </Link>
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="search-form_submit-btn"
+              disabled
+            >
+              Find Flight
+            </button>
+          ) }
         </form>
       </div>
     );
