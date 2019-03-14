@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Advantages from '../Advantages';
 import Banner from '../Banner';
-import './AdvantagesBlock.less';
+import './advantagesBlock.less';
 
 const AdvantagesBlock = ({ links }) => (
   <div className="advantagesBlock-content">

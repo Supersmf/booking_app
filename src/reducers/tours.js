@@ -1,6 +1,5 @@
 import { handleActions } from 'redux-actions';
 import { ADD_TOUR } from '../constants';
-// import { addTour } from '../actions/actionCreator';
 
 const initialState = [
   {
@@ -35,9 +34,11 @@ const initialState = [
     description: 'Take off from Cyprus Airport on an exhilarating helicopter flight to the Grand',
   }];
 
-const tours = handleActions(
-  { [ADD_TOUR]: () => ({}) },
-  initialState,
-);
+const handleAddTour = () => ({});
+
+const tours = handleActions({
+  [ADD_TOUR]: handleAddTour,
+},
+initialState);
 
 export default tours;

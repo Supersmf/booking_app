@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LinkBox from './linkBox';
-import './Advantages.less';
+import './advantages.less';
 
 const Advantages = ({ links }) => (
   <div className="advantages-container">
     <h2 className="advantages-container_title">JB Advantages-A</h2>
     <div className="advantages-container_listGroup">
-      <LinkBox links={links} />
       <LinkBox links={links} />
     </div>
     <div className="advantages-container_btnContainer">

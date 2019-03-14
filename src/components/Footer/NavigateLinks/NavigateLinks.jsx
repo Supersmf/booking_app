@@ -1,15 +1,15 @@
 import React from 'react';
-import './NavigateLinks.less';
+import btns from './btns_content';
+import './navigateLinks.less';
 
 const NavigateLinks = () => (
   <div>
     <ul className="footer_content_groupBtn">
-      <li className="footer_content_groupBtn_link"><a href="https://home">Home</a></li>
-      <li className="footer_content_groupBtn_link"><a href="https://holiday_packages">Holiday Packages</a></li>
-      <li className="footer_content_groupBtn_link"><a href="https://best_deals">Best Deals</a></li>
-      <li className="footer_content_groupBtn_link"><a href="https://services">Services</a></li>
-      <li className="footer_content_groupBtn_link"><a href="https://about">About Us</a></li>
-      <li className="footer_content_groupBtn_link"><a href="https://contacts">Contact Us</a></li>
+      {btns.map(({ id, name, href }) => (
+        <li key={id} className="footer_content_groupBtn_link">
+          <a href={href}>{name}</a>
+        </li>
+      ))}
     </ul>
   </div>
 );

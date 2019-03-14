@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // import moment from 'moment';
@@ -6,19 +7,31 @@ import FormRadioBtn from './FormRadioBtn';
 import FormDataList from './FormDataList';
 import PassengersSelect from './PassengersSelect';
 import Calendar from './Calendar';
-import './SearchForm.less';
+import './searchForm.less';
 
 class SearchForm extends Component {
-  state = {
-    departDate: new Date(),
-    returnDate: new Date(),
-    from: '',
-    to: '',
-    adults: 1,
-    children: 0,
-    infant: 0,
-    isOneway: true,
-  };
+  constructor(props) {
+    super(props);
+    const {
+      form: {
+        from, to, departDate, returnDate,
+        adults, children, infant, isOneway,
+      }, country, addFormData, dispatchClearTicket,
+    } = props;
+    this.state = {
+      from,
+      to,
+      departDate,
+      returnDate,
+      adults,
+      children,
+      infant,
+      isOneway,
+      country,
+      addFormData,
+      dispatchClearTicket,
+    };
+  }
 
   onChooseDepartDate = (newTime) => {
     this.setState({ departDate: newTime });
@@ -189,6 +202,7 @@ SearchForm.propTypes = {
   addFormData: PropTypes.func.isRequired,
   dispatchClearTicket: PropTypes.func.isRequired,
   country: PropTypes.arrayOf(PropTypes.object).isRequired,
+  form: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default SearchForm;

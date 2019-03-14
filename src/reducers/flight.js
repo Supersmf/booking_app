@@ -65,9 +65,11 @@ const initialState = [
   },
 ];
 
-const flight = handleActions(
-  { [ADD_FLIGHT]: () => ({}) },
-  initialState,
-);
+const handleAddFight = () => ({});
+
+const flight = handleActions({
+  [ADD_FLIGHT]: handleAddFight,
+},
+initialState);
 
 export default flight;

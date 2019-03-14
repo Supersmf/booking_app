@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TourCard from '../TourCard';
-import './MultiСard.less';
+import './multiСard.less';
 
 const MultiСard = ({ tours }) => (
   <div className="MultiСard-content">

@@ -1,8 +1,7 @@
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Flight from './Flight';
-import './SearchFlight.less';
+import './searchFlight.less';
 
 const SearchFlight = ({
   flights, isOneway, tickets, dispatchAddTicket,

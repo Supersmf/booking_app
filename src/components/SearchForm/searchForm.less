@@ -1,0 +1,126 @@
+.search-form{
+    background-color: #dc4109;
+    min-height: 500px;
+    min-width: 35%;
+    margin: 15px 10px 15px 15px;
+    border-radius: 20px;
+}
+
+.search-form_title {
+    text-align: center;
+    margin: 25px;
+    padding: 0px 15px;
+    background-color: #ad3002;
+    border-radius: 20px;
+    color: #fffffe;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 100;
+}
+
+.search-form_radio-group {
+    list-style: none;
+    color: #fffffe;
+    padding: 0 35px;
+    margin: 0;
+}
+
+
+
+input[type="radio"] {
+    transform: scale(1.4);
+    margin-right: 5px;
+}
+
+.search-form_input-group {
+    padding-left: 28px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.search-form_input-group-select{
+    margin-top: 12px;
+    width: 48%;
+    display: inline-block;
+    position: relative;
+}
+
+.search-form_input-group-select_select{
+    width: 95%;
+    height: 40px;    
+}
+.search-form_input-group-select_label{
+    margin: 0;
+    padding-bottom: 8px;
+    color: #fffffe;
+}
+
+.search-form_input-group-calendar-input{
+    width: 100%;
+    height: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #706c64;
+    padding-left: 5%;
+    box-sizing: border-box;
+    border: 0;
+    background: white url('../../images/calendar.svg') no-repeat 95% 50%;
+}
+
+.search-form_input-group-count {
+    // margin-top: 45px;
+    padding-left: 28px;
+    padding-right: 15px;
+    width: 80%;
+    display: flex;
+    list-style: none;
+}
+
+.search-form_input-group-count_select{
+    margin: 0px 30px 10px 0;
+    width: 80px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.search-form_input-group-count_count{
+    margin-top: 12px;
+    width: 48%;
+    display: inline-block;
+    position: relative;
+}
+
+.search-form_submit-btn{
+    display: inline-block;
+    margin-left: 28px;
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: #374f6b;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        background: #6480a0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+        transform: scale(1.01);
+        color: #363636;
+    }
+    &:active{
+        transform: scale(0.95);
+    }
+}
+
+.search-form_submit-link{
+    text-decoration: none;
+    color: #fffffe;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}

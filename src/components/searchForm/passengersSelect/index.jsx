@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './PassengersSelect.less';
+import './passengersSelect.less';
 
 const PassengersSelect = ({
   title, onSetCount, count, min, max,

@@ -19,9 +19,11 @@ const initialState = [
   },
 ];
 
-const country = handleActions(
-  { [ADD_COUNTRY]: () => ({}) },
-  initialState,
-);
+const handleAddCountry = () => ({});
+
+const country = handleActions({
+  [ADD_COUNTRY]: handleAddCountry,
+},
+initialState);
 
 export default country;

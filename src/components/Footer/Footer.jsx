@@ -1,7 +1,7 @@
 import React from 'react';
 import NavigateLinks from './NavigateLinks';
 import SocialLinks from './SocialLinks';
-import './Footer.less';
+import './footer.less';
 
 const Footer = () => (
   <div className="footer">

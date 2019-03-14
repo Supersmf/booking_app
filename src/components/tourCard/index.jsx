@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import beachImg from '../../images/beach1.jpg';
-import './TourCard.less';
+import './tourCard.less';
 
 const TourCard = ({
   tour: {

@@ -1,17 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TicketBlock from './TicketBlock';
-import './ResultBooked.less';
+import './resultBooked.less';
 
 const ResultBooked = ({ tickets }) => {
-  tickets.reduce((sum, { price }) => console.log(price), tickets[0].price);
+  const total = (tickets.reduce((sum, { price }) => (
+    sum + price), 0)).toFixed(2);
   return (
     <div className="resultBooked-content">
-      {tickets.map(ticket => (
-        <TicketBlock {...ticket} key={ticket.id} />
-      ))}
-      <div>
-        {/* {total} */}
+      <div className="resultBooked-content_tickets">
+        {tickets.map(ticket => (
+          <TicketBlock {...ticket} key={ticket.id} />
+        ))}
+      </div>
+      <div className="resultBooked-content_totalBlock">
+        <div className="resultBooked-content_totalBlock_header" />
+        <p>{`${total}$`}</p>
+        <button
+          type="submit"
+          className="resultBooked-content_totalBlock_btn"
+        >
+          Submit
+        </button>
       </div>
     </div>
   );

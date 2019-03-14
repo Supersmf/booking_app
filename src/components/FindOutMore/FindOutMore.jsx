@@ -1,5 +1,5 @@
 import React from 'react';
-import './FindOutMore.less';
+import './findOutMore.less';
 
 const FindOutMore = () => (
   <div className="findMore-container">

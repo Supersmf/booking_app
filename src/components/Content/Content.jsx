@@ -8,7 +8,7 @@ import SearchReturnFlight from '../SearchReturnFlight';
 import ResultBooked from '../ResultBooked';
 import MultiСard from '../MultiСard';
 import AdvantagesBlock from '../AdvantagesBlock';
-import './Content.less';
+import './content.less';
 
 const Content = () => (
   <Fragment>

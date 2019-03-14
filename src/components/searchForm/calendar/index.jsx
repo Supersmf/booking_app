@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import './Calendar.less';
+import './calendar.less';
 
 const Calendar = ({ title, onChooseDate, time }) => (
   <li className="search-form_input-group-select search-form_input-group-select-calendar">

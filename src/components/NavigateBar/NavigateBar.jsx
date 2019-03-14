@@ -1,16 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './NavigateBar.less';
+import btns from './btns_content';
+import './navigateBar.less';
 
 const NavigateBar = () => (
   <div className="navigateBar">
     <ul className="navigateBar_groupBtn">
-      <li className="navigateBar_groupBtn_link"><NavLink exact to="/">Home</NavLink></li>
-      <li className="navigateBar_groupBtn_link"><a href="https://#">Domestic Flight</a></li>
-      <li className="navigateBar_groupBtn_link"><a href="https://#">Best Deals</a></li>
-      <li className="navigateBar_groupBtn_link"><a href="https://#">Services</a></li>
-      <li className="navigateBar_groupBtn_link"><a href="https://#">About Us</a></li>
-      <li className="navigateBar_groupBtn_link"><a href="https://#">Contact Us</a></li>
+      {btns.map(({ id, name, href }) => (
+        <li key={id} className="navigateBar_groupBtn_link"><NavLink exact to={href}>{name}</NavLink></li>
+      ))}
     </ul>
   </div>
 );

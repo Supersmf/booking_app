@@ -3,7 +3,7 @@ import { ADD_TICKET, CLEAR_TICKET } from '../constants';
 
 const initialState = [];
 
-const onAddTicket = (state, {
+const handleAddTicket = (state, {
   payload: {
     id, from, to, startTime, endTime, flight, price,
   },
@@ -13,14 +13,12 @@ const onAddTicket = (state, {
   },
 ]);
 
-const clearTicket = () => initialState;
+const handleClearTicket = () => initialState;
 
-const ticket = handleActions(
-  {
-    [ADD_TICKET]: onAddTicket,
-    [CLEAR_TICKET]: clearTicket,
-  },
-  initialState,
-);
+const ticket = handleActions({
+  [ADD_TICKET]: handleAddTicket,
+  [CLEAR_TICKET]: handleClearTicket,
+},
+initialState);
 
 export default ticket;
