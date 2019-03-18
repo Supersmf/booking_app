@@ -65,7 +65,9 @@ const initialState = [
   },
 ];
 
-const handleAddFight = () => ({});
+const handleAddFight = () => (
+  fetch('localhost:3000/flights', { method: 'GET' }).then(res => res.json())
+);
 
 const flight = handleActions({
   [ADD_FLIGHT]: handleAddFight,
