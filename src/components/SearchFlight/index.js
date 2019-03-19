@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addTicket } from '../../actions/actionCreator';
+import { addTicket, fetchFlight } from '../../actions/actionCreator';
 import SearchFlight from './SearchFlight';
 
 const filter = ({ flight, searchData: { from, to } }) => (
@@ -15,10 +15,12 @@ const mapStateToProps = state => ({
   flights: filter(state),
   isOneway: state.searchData.isOneway,
   tickets: state.ticket,
+  status: state.status,
 });
 
-const mapDispatchToProps = {
+const mapDispatchToProps = dispatch => ({
   dispatchAddTicket: addTicket,
-};
+  fetchFlights: () => dispatch(fetchFlight()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchFlight);

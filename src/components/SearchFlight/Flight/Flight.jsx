@@ -11,9 +11,9 @@ const Flight = (props) => {
   } = props;
   return (
     <tr>
-      <td>{startTime.format('HH:mm')}</td>
-      <td>{moment.utc(endTime.diff(startTime)).format('h[h]m[m]')}</td>
-      <td>{endTime.format('HH:mm')}</td>
+      <td>{moment(startTime).format('HH:mm')}</td>
+      <td>{moment.utc(moment(endTime).diff(startTime)).format('h[h]m[m]')}</td>
+      <td>{moment(endTime).format('HH:mm')}</td>
       <td>{flight}</td>
       <td>
         <BtnChooseFly
@@ -36,8 +36,8 @@ const Flight = (props) => {
 };
 
 Flight.propTypes = {
-  startTime: PropTypes.instanceOf(moment).isRequired,
-  endTime: PropTypes.instanceOf(moment).isRequired,
+  startTime: PropTypes.string.isRequired,
+  endTime: PropTypes.string.isRequired,
   flight: PropTypes.string.isRequired,
   priceEconomy: PropTypes.number.isRequired,
   priceBusiness: PropTypes.number.isRequired,

@@ -1,4 +1,5 @@
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 
 /* eslint-disable no-underscore-dangle */
@@ -12,7 +13,7 @@ const configureStore = preloadedState => (
   createStore(
     rootReducer,
     preloadedState,
-    composeEnhancers(),
+    composeEnhancers(applyMiddleware(thunk)),
   )
 );
 

@@ -7,9 +7,7 @@ const ticketSchema = new Schema({
   startTime: Schema.Types.Date,
   endTime: Schema.Types.Date,
   flight: String,
-  priceEconomy: Number,
-  priceBusiness: Number,
+  price: Number,
 });
 
-// export default ticketSchema;
 export default mongoose.model('Ticket', ticketSchema, 'ticket');

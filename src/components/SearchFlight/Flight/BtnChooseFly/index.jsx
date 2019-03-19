@@ -1,18 +1,19 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import moment from 'moment';
+// import moment from 'moment';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // import './BtnChooseFly.less';
 
 const BtnChooseFly = ({
-  id, from, to,
+  _id, from, to,
   startTime, endTime, flight,
   tickets, price, isOneway,
   text, btnClass, dispatchAddTicket,
 }) => {
   const switchLink = (isOneway || tickets.length) ? '/search/result' : '/search/return';
   const addTicket = () => dispatchAddTicket({
-    id, from, to, startTime, price, endTime, flight,
+    _id, from, to, startTime, price, endTime, flight,
   });
 
   return (
@@ -34,11 +35,11 @@ const BtnChooseFly = ({
 };
 
 BtnChooseFly.propTypes = {
-  id: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
   from: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
-  startTime: PropTypes.instanceOf(moment).isRequired,
-  endTime: PropTypes.instanceOf(moment).isRequired,
+  startTime: PropTypes.string.isRequired,
+  endTime: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   isOneway: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,

@@ -1,11 +1,16 @@
 import Router from 'koa-router';
 import '@babel/polyfill';
-import Ticket from '../../models/ticket';
+import Flight from '../../models/flights';
+import Tickets from '../../models/tickets';
 
 const router = new Router();
 
 router.get('/flights', async (ctx) => {
-  ctx.body = await Ticket.find();
+  ctx.body = await Flight.find();
+});
+
+router.get('/tickets', async (ctx) => {
+  ctx.body = await Tickets.find();
 });
 
 export function routes() { return router.routes(); }

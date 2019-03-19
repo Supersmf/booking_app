@@ -50,6 +50,7 @@
     "koa": "^2.7.0",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
+    "koa2-cors": "^2.0.6",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "moment": "^2.24.0",
@@ -62,6 +63,7 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.5",
+    "redux-thunk": "^2.3.0",
     "uninstall": "0.0.0"
   }
 }
