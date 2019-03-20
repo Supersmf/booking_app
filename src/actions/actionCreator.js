@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { fetchFlights } from '../services';
+import { fetchFlights, addFlights } from '../services';
 import {
   ADD_SEARCH_DATA, ADD_ADVANTAGES_LINK,
   ADD_COUNTRY, ADD_TOUR, ADD_FLIGHT,
@@ -22,6 +22,7 @@ export const failedFetchFlights = createAction(FAILED_FETCH_FLIGHTS);
 
 export const fetchFlight = () => (dispatch) => {
   dispatch(startedFetchFlights(true));
+  addFlights();
   fetchFlights()
     .then((result) => {
       dispatch(startedFetchFlights(false));

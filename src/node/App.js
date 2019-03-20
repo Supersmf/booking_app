@@ -1,11 +1,14 @@
 import mongoose from 'mongoose';
 import cors from 'koa2-cors';
+import bodyParser from 'koa-bodyparser';
 import { routes, allowedMethods } from './middleware/routes';
 import { port, dbUri } from './config';
 
 mongoose.connect(dbUri, { useNewUrlParser: true });
 
-mongoose.connection.on('error', console.error);
+mongoose.connection.on('error', () => {
+  console.log('⛔  Database connection error');
+});
 mongoose.connection.once('open', () => {
   console.log('✅  Database connect');
 });
@@ -18,6 +21,7 @@ const app = new Koa();
 app
   .use(cors())
   .use(logger())
+  .use(bodyParser())
   .use(routes())
   .use(allowedMethods());
 
