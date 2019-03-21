@@ -9,7 +9,7 @@
     "build": "webpack --mode production",
     "lint": "eslint --ext .js --ext .jsx .",
     "lint:fix": "eslint --fix",
-    "startServer": "nodemon ./src/node/start.js"
+    "startServer": "nodemon ./src/server/start.js"
   },
   "author": "",
   "license": "ISC",
