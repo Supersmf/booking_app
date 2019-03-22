@@ -1,8 +1,9 @@
 /* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // import moment from 'moment';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import FormRadioBtn from './FormRadioBtn';
 import FormDataList from './FormDataList';
 import PassengersSelect from './PassengersSelect';
@@ -81,7 +82,7 @@ class SearchForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    const { addFormData, dispatchClearTicket } = this.props;
+    const { addFormData, dispatchClearTicket, history } = this.props;
     const {
       departDate, returnDate, from,
       to, adults, children, infant, isOneway,
@@ -99,6 +100,8 @@ class SearchForm extends Component {
       infant,
       isOneway,
     });
+
+    history.push('/search');
   }
 
   render() {
@@ -128,11 +131,13 @@ class SearchForm extends Component {
             <FormDataList
               title="From"
               data={country}
+              value={from}
               onCountryChoose={this.onChooseCountryFrom}
             />
             <FormDataList
               title="To"
               data={country}
+              value={to}
               onCountryChoose={this.onChooseCountryTo}
             />
           </ul>
@@ -170,28 +175,14 @@ class SearchForm extends Component {
               onSetCount={this.onInfantSetCount}
             />
           </ul>
-          {(from && to) ? (
-            <button
-              type="submit"
-              onClick={this.onSubmit}
-              className="search-form_submit-btn"
-            >
-              <Link
-                to="search"
-                className="search-form_submit-link"
-              >
-              Find Flight
-              </Link>
-            </button>
-          ) : (
-            <button
-              type="submit"
-              className="search-form_submit-btn"
-              disabled
-            >
-              Find Flight
-            </button>
-          ) }
+          <button
+            type="submit"
+            onClick={this.onSubmit}
+            className="search-form_submit-btn"
+            disabled={!(from && to)}
+          >
+            Find Flight
+          </button>
         </form>
       </div>
     );
@@ -203,6 +194,7 @@ SearchForm.propTypes = {
   dispatchClearTicket: PropTypes.func.isRequired,
   country: PropTypes.arrayOf(PropTypes.object).isRequired,
   form: PropTypes.instanceOf(Object).isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default SearchForm;
+export default withRouter(SearchForm);

@@ -1,24 +1,30 @@
 import { handleActions } from 'redux-actions';
-import { STARTED_FETCH_FLIGHTS, FAILED_FETCH_FLIGHTS } from '../constants';
+import { ADD_FLIGHTS_REQUEST, ADD_FLIGHT_SUCCESS, ADD_FLIGHT_FAILURE } from '../constants';
 
 const initialState = {
   isFlightsFetching: false,
   flightsFetchError: null,
 };
 
-const handleStartedFetchFlight = ({ flightsFetchError }, { payload }) => ({
-  isFlightsFetching: payload,
+const handleAddFlightRequest = ({ flightsFetchError }) => ({
+  isFlightsFetching: true,
   flightsFetchError,
 });
 
-const handleFailedFetchFlight = ({ isFlightsFetching }, { payload }) => ({
+const handleAddFlightSuccess = ({ flightsFetchError }) => ({
+  isFlightsFetching: false,
+  flightsFetchError,
+});
+
+const handleAddFlightFailure = ({ isFlightsFetching }, { payload }) => ({
   isFlightsFetching,
   flightsFetchError: payload,
 });
 
 const status = handleActions({
-  [STARTED_FETCH_FLIGHTS]: handleStartedFetchFlight,
-  [FAILED_FETCH_FLIGHTS]: handleFailedFetchFlight,
+  [ADD_FLIGHTS_REQUEST]: handleAddFlightRequest,
+  [ADD_FLIGHT_SUCCESS]: handleAddFlightSuccess,
+  [ADD_FLIGHT_FAILURE]: handleAddFlightFailure,
 },
 initialState);
 

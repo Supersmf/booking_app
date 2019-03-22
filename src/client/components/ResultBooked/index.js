@@ -5,7 +5,7 @@ const mapStateToProps = state => ({
   tickets: state.ticket,
 });
 
-// const mapDispatchToProps = {
-// };
+const mapDispatchToProps = {
+};
 
-export default connect(mapStateToProps)(ResultBooked);
+export default connect(mapStateToProps, mapDispatchToProps)(ResultBooked);
