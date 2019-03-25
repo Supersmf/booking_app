@@ -7,13 +7,14 @@ import './flight.less';
 class Flight extends Component {
   onAddTicket = (event) => {
     const price = +event.target.getAttribute('price');
+    const type = event.target.getAttribute('type');
     const {
-      _id, from, to, startTime,
+      _id, from, to, startTime, bound,
       endTime, flight, dispatchAddTicket,
     } = this.props;
 
     dispatchAddTicket({
-      _id, from, to, startTime, endTime, flight, price,
+      _id, from, to, startTime, endTime, flight, price, type, bound,
     });
   };
 
@@ -38,8 +39,8 @@ class Flight extends Component {
             onClick={this.onAddTicket}
             price={priceEconomy}
             link={this.renderLink()}
+            type="Economy"
             text="Economy"
-            btnClass="searchFlight_table_btn economyBtn"
           />
         </td>
         <td>
@@ -47,8 +48,8 @@ class Flight extends Component {
             onClick={this.onAddTicket}
             price={priceBusiness}
             link={this.renderLink()}
+            type="Business"
             text="Business"
-            btnClass="searchFlight_table_btn businessBtn"
           />
         </td>
       </tr>
@@ -63,6 +64,7 @@ Flight.propTypes = {
   startTime: PropTypes.string.isRequired,
   endTime: PropTypes.string.isRequired,
   flight: PropTypes.string.isRequired,
+  bound: PropTypes.string.isRequired,
   priceEconomy: PropTypes.number.isRequired,
   priceBusiness: PropTypes.number.isRequired,
   tickets: PropTypes.arrayOf(PropTypes.object).isRequired,

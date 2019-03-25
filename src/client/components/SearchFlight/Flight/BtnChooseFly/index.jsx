@@ -4,14 +4,18 @@ import PropTypes from 'prop-types';
 // import './BtnChooseFly.less';
 
 const BtnChooseFly = ({
-  price, link, text, btnClass, onClick,
+  price, link, text, onClick, type,
 }) => (
   <button
     type="submit"
-    className={btnClass}
+    className={
+      type === 'Economy'
+        ? 'searchFlight_table_btn economyBtn'
+        : 'searchFlight_table_btn businessBtn'
+    }
     onClick={onClick}
   >
-    <Link price={price} to={link}>
+    <Link price={price} type={type} to={link}>
       {text}
       <br />
       {`${price} $`}
@@ -23,8 +27,8 @@ const BtnChooseFly = ({
 BtnChooseFly.propTypes = {
   price: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-  btnClass: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 

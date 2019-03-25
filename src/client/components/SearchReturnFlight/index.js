@@ -14,7 +14,7 @@ const filter = ({ flight, searchData: { from, to } }) => (
 
 const mapStateToProps = state => ({
   flights: filter(state),
-  isOneway: state.searchData.isOneway,
+  searchData: state.searchData,
   tickets: state.ticket,
   status: state.status,
 });

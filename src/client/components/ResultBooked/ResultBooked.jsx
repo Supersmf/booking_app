@@ -17,13 +17,13 @@ const ResultBooked = ({ tickets }) => {
       <div className="resultBooked-content_totalBlock">
         <div className="resultBooked-content_totalBlock_header" />
         <p>{`${total}$`}</p>
-        <button
-          type="submit"
-          className="resultBooked-content_totalBlock_btn"
-        >
-          Submit
-        </button>
       </div>
+      <button
+        type="submit"
+        className="resultBooked-content_totalBlock_btn"
+      >
+          Next
+      </button>
     </div>
   );
 };

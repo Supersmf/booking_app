@@ -1,38 +1,67 @@
-.ticketBlock-content{
-    border: 2px solid #344c68;
-    height: 80px;
-    border-radius: 5px;    
-    // box-sizing: border-box;
-    // padding-bottom: 20px;
+.ticketBlock-content {
+    border: 1px solid #344c68;
+    height: 120px;
+    border-radius: 5px;
+    // border-radius: 4px;
     margin-bottom: 20px;
 }
 
-.ticketBlock-content_header{
-    height: 40%;
+.ticketBlock-content_header {
+    height: 30%;
     width: 100%;
     color: #fff;
     background: #344c68;
     border-radius: 2px 2px 0 0;
     text-align: left;
     box-sizing: border-box;
-    padding: 5px;
+    padding: 5px 0 5px 15px;
     font-size: 1.3rem;
+    font-weight: 700;
 }
 
-.ticketBlock-content_table{
+.ticketBlock-content_table {
     width: 100%;
     border: 0;
-    height: 60%;
+    height: 70%;
     border-collapse: collapse;
 }
 
 .ticketBlock-content_table tr {
-    // border: 1px dotted green;
-    height: 100%;
-    // background: #fff;
-    // text-align: center;
-    // box-sizing: border-box;
-    &:nth-child(even) {
-        background: #f5f5f5;
+    font-size: 1.6rem;
+    line-height: 1rem;
+    font-weight: 500;
+}
+
+.ticketBlock-content_table_plane {
+    &::before {
+        font-family: FontAwesome;
+        content: "\f072";
+        margin-right: 10px;
+        color: #344c68;
+    }
+}
+
+.ticketBlock-content_table_underline {
+    font-size: 0.9rem;
+    color: grey;
+}
+
+.ticketBlock-content_table_btn{
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5); 
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    background: #7fd3f7;
+    cursor: pointer;
+    &:hover{
+        background: #7fd3f7cc;
+        transform: scale(1.03);
+    }
+    &:active{
+        transform: scale(0.98);
     }
 }

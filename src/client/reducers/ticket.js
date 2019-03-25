@@ -5,11 +5,11 @@ const initialState = [];
 
 const handleAddTicket = (state, {
   payload: {
-    _id, from, to, startTime, endTime, flight, price,
+    _id, from, to, startTime, endTime, flight, price, type, bound,
   },
 }) => ([
   ...state, {
-    _id, from, to, startTime, endTime, flight, price,
+    _id, from, to, startTime, endTime, flight, price, type, bound,
   },
 ]);
 

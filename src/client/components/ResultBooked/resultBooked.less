@@ -16,25 +16,43 @@
 }
 
 .resultBooked-content_totalBlock{
-    // border: 2px solid #7FD3F7;
-    // border-radius: 15px;
-    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.5);
+    border: 1px solid #344c68;
+    border-radius: 5px;
+    
+    // box-shadow: 0 5px 2px rgba(0, 0, 0, 0.5);
     width: 500px;
     height: 200px;
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 0;
 }
 
 .resultBooked-content_totalBlock_header{
     height: 30px;
-    background: #7FD3F7;
+    border-radius: 2px 2px 0 0;
+    background: #344c68;
     // border-radius: 10px 10px 0 0;
 }
 
 .resultBooked-content_totalBlock_btn{
-    width: 150px;
-    height: 40px;
-    border-radius: 10px;
-    // border: 0;
+    position: absolute;
+    bottom: 20px;
+    right: 140px;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5); 
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    background: #77ca27;
+    cursor: pointer;
+    &:hover{
+        background: #77ca27cc;
+        transform: scale(1.03);
+    }
+    &:active{
+        transform: scale(0.98);
+    }
 }
