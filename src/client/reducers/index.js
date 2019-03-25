@@ -6,6 +6,7 @@ import flight from './flight';
 import country from './country';
 import ticket from './ticket';
 import status from './status';
+import passenger from './passenger';
 
 const rootReducer = combineReducers({
   searchData,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   flight,
   ticket,
   status,
+  passenger,
 });
 
 export default rootReducer;

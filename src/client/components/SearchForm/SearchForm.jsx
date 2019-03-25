@@ -82,7 +82,9 @@ class SearchForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    const { addFormData, dispatchClearTicket, history } = this.props;
+    const {
+      addFormData, dispatchClearTicket, addPassenger, history,
+    } = this.props;
     const {
       departDate, returnDate, from,
       to, adults, children, infant, isOneway,
@@ -99,6 +101,12 @@ class SearchForm extends Component {
       children,
       infant,
       isOneway,
+    });
+
+    addPassenger({
+      adults: new Array(adults).fill(''),
+      children: new Array(children).fill(''),
+      infant: new Array(infant).fill(''),
     });
 
     history.push('/search');
@@ -192,6 +200,7 @@ class SearchForm extends Component {
 SearchForm.propTypes = {
   addFormData: PropTypes.func.isRequired,
   dispatchClearTicket: PropTypes.func.isRequired,
+  addPassenger: PropTypes.func.isRequired,
   country: PropTypes.arrayOf(PropTypes.object).isRequired,
   form: PropTypes.instanceOf(Object).isRequired,
   history: PropTypes.instanceOf(Object).isRequired,

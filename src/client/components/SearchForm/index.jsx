@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import SearchForm from './SearchForm';
 import { addSearchData, clearTicket } from '../../actions/actionCreator';
+import { addPassenger } from '../../actions/passenger';
 
 const mapStateToProps = state => ({
   form: state.searchData,
@@ -9,6 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   addFormData: addSearchData,
+  addPassenger,
   dispatchClearTicket: clearTicket,
 };
 
