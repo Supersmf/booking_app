@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-underscore-dangle */
@@ -10,7 +11,7 @@ import './passengersInfo.less';
 class PassengersInfo extends Component {
   constructor(props) {
     super(props);
-    const { passengers: { adults, children, infant } } = props;
+    const { passengers: { adults = [{}], children = [], infant = [] } } = props;
     this.state = {
       adults,
       children,
@@ -18,11 +19,43 @@ class PassengersInfo extends Component {
     };
   }
 
-  onAddAdlInfo = (info, index) => {
-    console.log(info);
-    const { adults } = this.state;
-    adults[index] = info;
-    this.setState({ adults });
+  onAddInfo = (
+    type, order, value, field,
+  ) => {
+    this.setState((state) => {
+      const currentInfo = [...state[type]];
+      currentInfo[order][field] = value;
+      return { [type]: currentInfo };
+    }, () => {
+      console.log(this.state);
+      this.checkData();
+    });
+  }
+
+  checkData = () => {
+    const { adults, children, infant } = this.state;
+
+    const check = (arr) => {
+      let res = true;
+      arr.forEach((info) => {
+        const keys = Object.keys(info);
+        if (keys.length !== 6) {
+          res = false;
+        } else {
+          keys.forEach((key) => {
+            if (info[key].length === 0) {
+              res = false;
+            }
+          });
+        }
+      });
+      return res;
+    };
+    return (check(adults) && check(children) && check(infant));
+  }
+
+  onSubmit = () => {
+
   }
 
   render() {
@@ -31,15 +64,23 @@ class PassengersInfo extends Component {
       <div className="passengersInfo-content">
         <form>
           {adults.map((x, i) => (
-            <Passenger key={i} order={i} type="Adult" onAddInfo={this.onAddAdlInfo} />
+            <Passenger key={i} order={i} type="adults" onAddInfo={this.onAddInfo} />
           ))}
           {children.map((x, i) => (
-            <Passenger key={i} order={i + 1} type="Children" />
+            <Passenger key={i} order={i} type="children" onAddInfo={this.onAddInfo} />
           ))}
           {infant.map((x, i) => (
-            <Passenger key={i} order={i + 1} type="Infant" />
+            <Passenger key={i} order={i} type="infant" onAddInfo={this.onAddInfo} />
           ))}
         </form>
+        <button
+          type="submit"
+          onClick={this.onSubmit}
+          className="passengersInfo-content_submit-btn"
+          disabled={!this.checkData()}
+        >
+            Next
+        </button>
       </div>
     );
   }

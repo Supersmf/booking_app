@@ -104,9 +104,9 @@ class SearchForm extends Component {
     });
 
     addPassenger({
-      adults: new Array(adults).fill(''),
-      children: new Array(children).fill(''),
-      infant: new Array(infant).fill(''),
+      adults: new Array(adults).fill({}),
+      children: new Array(children).fill({}),
+      infant: new Array(infant).fill({}),
     });
 
     history.push('/search');

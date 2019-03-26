@@ -4,6 +4,11 @@ import bodyParser from 'koa-bodyparser';
 import { routes, allowedMethods } from './middleware/routes';
 import { port, dbUri } from './config';
 
+const Koa = require('koa');
+const logger = require('koa-logger');
+
+const app = new Koa();
+
 mongoose.connect(dbUri, { useNewUrlParser: true });
 
 mongoose.connection.on('error', () => {
@@ -12,11 +17,6 @@ mongoose.connection.on('error', () => {
 mongoose.connection.once('open', () => {
   console.log('✅  Database connect');
 });
-
-const Koa = require('koa');
-const logger = require('koa-logger');
-
-const app = new Koa();
 
 app
   .use(cors())
