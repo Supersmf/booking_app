@@ -11,7 +11,7 @@ export const addFlights = () => (dispatch) => {
   dispatch(addFlightRequest(true));
   fetchFlights()
     .then((result) => {
-      dispatch(addFlightRequest(false));
+      // dispatch(addFlightRequest(false));
       dispatch(addFlightSuccess(result));
     })
     .catch((error) => {

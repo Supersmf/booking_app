@@ -1,0 +1,80 @@
+.confirmBooked-content{
+    min-height: 500px;
+    margin: 15px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.confirmBooked-content_totalBlock{
+    border: 1px solid #344c68;
+    border-radius: 10px;
+    margin: auto;
+    height: 200px;
+    width: 40%;
+    padding-bottom: 40px;
+}
+
+.confirmBooked-content_totalBlock_header{
+    height: 50px;
+    border-radius: 8px 8px 0 0;
+    background: #344c68;
+}
+
+.confirmBooked-content_totalBlock_btn{
+    position: absolute;
+    bottom: 20px;
+    right: 140px;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5); 
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    background: #77ca27;
+    line-height: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover{
+        background: #77ca27cc;
+        transform: scale(1.03);
+    }
+    &:active{
+        transform: scale(0.98);
+    }
+}
+
+.confirmBooked-content_totalBlock_prices{
+    position: relative;
+    height: 90%;
+}
+
+.confirmBooked-content_totalBlock_item{    
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    line-height: 0.5rem;
+    p{
+        margin: 10px 0 5px 0;
+    }
+}
+
+.confirmBooked-content_totalBlock_total{
+    color: #ff0000;
+    font-size: 1.4rem;
+    font-weight: 700;
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+}
+
+.confirmBooked-content_totalBlock_itemInfo{
+    box-sizing: border-box;
+    text-align: left;
+    p {
+        margin: 0 0 0 50px;
+        color: #808080;
+    }
+}

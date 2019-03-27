@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import PassengersInfo from './PassengersInfo';
+import { addPassengerInfo } from '../../actions/passenger';
 
 const mapStateToProps = state => ({
 //   tickets: state.ticket,
@@ -8,6 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
+  addPassengerInfo,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PassengersInfo);

@@ -1,13 +1,13 @@
+/* eslint-disable no-new-object */
 /* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import moment from 'moment';
-// import { Link } from 'react-router-dom';
 import FormRadioBtn from './FormRadioBtn';
 import FormDataList from './FormDataList';
 import PassengersSelect from './PassengersSelect';
 import Calendar from './Calendar';
+import { arrayFillObject } from '../../helpers';
 import './searchForm.less';
 
 class SearchForm extends Component {
@@ -104,9 +104,9 @@ class SearchForm extends Component {
     });
 
     addPassenger({
-      adults: new Array(adults).fill({}),
-      children: new Array(children).fill({}),
-      infant: new Array(infant).fill({}),
+      adults: arrayFillObject(adults),
+      children: arrayFillObject(children),
+      infant: arrayFillObject(infant),
     });
 
     history.push('/search');

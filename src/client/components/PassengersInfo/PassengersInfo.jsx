@@ -1,11 +1,8 @@
-/* eslint-disable no-debugger */
-/* eslint-disable react/no-unused-state */
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable no-underscore-dangle */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import Passenger from './Passenger';
-// import { Link } from 'react-router-dom';
 import './passengersInfo.less';
 
 class PassengersInfo extends Component {
@@ -27,7 +24,6 @@ class PassengersInfo extends Component {
       currentInfo[order][field] = value;
       return { [type]: currentInfo };
     }, () => {
-      console.log(this.state);
       this.checkData();
     });
   }
@@ -43,7 +39,7 @@ class PassengersInfo extends Component {
           res = false;
         } else {
           keys.forEach((key) => {
-            if (info[key].length === 0) {
+            if (!info[key] || info[key].length === 0) {
               res = false;
             }
           });
@@ -55,7 +51,11 @@ class PassengersInfo extends Component {
   }
 
   onSubmit = () => {
+    const { history, addPassengerInfo } = this.props;
+    const { adults, children, infant } = this.state;
 
+    addPassengerInfo({ adults, children, infant });
+    history.push('passengers/confirm');
   }
 
   render() {
@@ -63,14 +63,32 @@ class PassengersInfo extends Component {
     return (
       <div className="passengersInfo-content">
         <form>
-          {adults.map((x, i) => (
-            <Passenger key={i} order={i} type="adults" onAddInfo={this.onAddInfo} />
+          {adults.map((info, i) => (
+            <Passenger
+              key={i}
+              order={i}
+              info={info}
+              type="adults"
+              onAddInfo={this.onAddInfo}
+            />
           ))}
-          {children.map((x, i) => (
-            <Passenger key={i} order={i} type="children" onAddInfo={this.onAddInfo} />
+          {children.map((info, i) => (
+            <Passenger
+              key={i}
+              order={i}
+              info={info}
+              type="children"
+              onAddInfo={this.onAddInfo}
+            />
           ))}
-          {infant.map((x, i) => (
-            <Passenger key={i} order={i} type="infant" onAddInfo={this.onAddInfo} />
+          {infant.map((info, i) => (
+            <Passenger
+              key={i}
+              order={i}
+              info={info}
+              type="infant"
+              onAddInfo={this.onAddInfo}
+            />
           ))}
         </form>
         <button
@@ -87,12 +105,11 @@ class PassengersInfo extends Component {
 }
 
 PassengersInfo.propTypes = {
-  // adults: PropTypes.arrayOf(PropTypes.object).isRequired,
-  // children: PropTypes.arrayOf(PropTypes.object).isRequired,
-  // infant: PropTypes.arrayOf(PropTypes.object).isRequired,
   passengers: PropTypes.instanceOf(Object).isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
+  addPassengerInfo: PropTypes.func.isRequired,
 };
 PassengersInfo.defaultProps = {
 };
 
-export default PassengersInfo;
+export default withRouter(PassengersInfo);
