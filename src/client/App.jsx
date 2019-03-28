@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Content from './components/Content';
+// import ConfirmModelWindow from './components/ConfirmModelWindow';
 import './styles/App.less';
 
 const App = () => (
@@ -11,6 +12,7 @@ const App = () => (
       <Content />
     </div>
     <Footer />
+    {/* <ConfirmModelWindow /> */}
   </div>
 );
 

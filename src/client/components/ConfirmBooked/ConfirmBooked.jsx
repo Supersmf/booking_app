@@ -1,52 +1,72 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable no-underscore-dangle */
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import InfoBlock from './InfoBlock';
 import './confirmBooked.less';
 
-const ResultBooked = ({
-  dispatchCustomerConfirm, prices, passenger, tickets,
-}) => {
-  const {
-    adultsPrice, childrenPrice, infantPrice, totalPrice,
-  } = prices;
-  const { adults, children, infant } = passenger;
+class ResultBooked extends Component {
+  constructor(props) {
+    super(props);
+    const {
+      dispatchCustomerConfirm, prices, passenger, tickets, history,
+    } = this.props;
+    this.state = {
+      dispatchCustomerConfirm,
+      prices,
+      passenger,
+      tickets,
+      history,
+    };
+  }
 
-  return (
-    <div className="confirmBooked-content">
-      <div className="confirmBooked-content_totalBlock">
-        <div className="confirmBooked-content_totalBlock_header" />
-        <div className="confirmBooked-content_totalBlock_prices">
-          <InfoBlock price={adultsPrice} passenger={adults} type="Adult" />
-          <InfoBlock price={childrenPrice} passenger={children} type="Children" />
-          <InfoBlock price={infantPrice} passenger={infant} type="Infant" />
-          <p className="confirmBooked-content_totalBlock_total">
-            {`Total: ${totalPrice}$`}
-          </p>
+  onSubmit = () => {
+    const {
+      dispatchCustomerConfirm, passenger, prices, tickets, history,
+    } = this.state;
+    dispatchCustomerConfirm({ passenger, prices, tickets });
+    history.push('/');
+  };
+
+  render() {
+    const {
+      prices: {
+        adultsPrice, childrenPrice, infantPrice, totalPrice,
+      },
+      passenger: { adults, children, infant },
+    } = this.state;
+    return (
+      <div className="confirmBooked-content">
+        <div className="confirmBooked-content_totalBlock">
+          <div className="confirmBooked-content_totalBlock_header" />
+          <div className="confirmBooked-content_totalBlock_prices">
+            <InfoBlock price={adultsPrice} passenger={adults} type="Adult" />
+            <InfoBlock price={childrenPrice} passenger={children} type="Children" />
+            <InfoBlock price={infantPrice} passenger={infant} type="Infant" />
+            <p className="confirmBooked-content_totalBlock_total">
+              {`Total: ${totalPrice}$`}
+            </p>
+          </div>
         </div>
-      </div>
-      <button
-        type="submit"
-        className="confirmBooked-content_totalBlock_btn"
-        onClick={(event) => {
-          event.preventDefault();
-          dispatchCustomerConfirm({ passenger, prices, tickets });
-        }
-        }
-      >
+        <button
+          type="submit"
+          className="confirmBooked-content_totalBlock_btn"
+          onClick={this.onSubmit}
+        >
         Confirm
-      </button>
-    </div>
-  );
-};
+        </button>
+      </div>
+    );
+  }
+}
+
 ResultBooked.propTypes = {
   prices: PropTypes.instanceOf(Object).isRequired,
   passenger: PropTypes.instanceOf(Object).isRequired,
   tickets: PropTypes.instanceOf(Object).isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
   dispatchCustomerConfirm: PropTypes.func.isRequired,
 };
 ResultBooked.defaultProps = {
 };
 
-export default ResultBooked;
+export default withRouter(ResultBooked);
