@@ -13,7 +13,7 @@ passport.deserializeUser((id, done) => {
   });
 });
 
-passport.use('login', new LocalStrategy(
+passport.use('local', new LocalStrategy(
   ((username, password, done) => {
     Users.findOne({ username }, (err, user) => {
       if (err) { return done(err); }

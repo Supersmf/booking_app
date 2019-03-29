@@ -1,5 +1,4 @@
 import Router from 'koa-router';
-import '@babel/polyfill';
 import toursController from './controller';
 import Tours from './model';
 

@@ -1,0 +1,64 @@
+.flightsHeader-content_header {
+    // border: 1px dotted red;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background: #344c68;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 10px;
+    h2{
+        margin: 0;
+        display: inline-block;
+        color: #FFF079;
+    }
+    p{
+        margin: 0;
+        text-align: left;
+        color: #acacac;
+        font-weight: 700;
+        line-height: 1rem;
+    }
+}
+
+.flightsHeader-content_link-back {
+    background: #344c68;
+    width: 100px;
+    height: 100%;
+    text-decoration: none;
+    border-right: 1px solid #fff;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.4rem;
+    border-radius: 10px 0 0 0;
+    cursor: pointer;
+    border: 0;
+    position: relative;
+    &::before {
+        font-family: FontAwesome;
+        content: "\f0d9";
+        margin-right: 15px;
+    }
+    &:hover {
+        background: #4f6d8f
+    }
+    &::after{
+        content: ' ';
+        border: 0.5px solid #acacac;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+    }
+}
+
+.flightsHeader-content_title {
+    font-size: 2rem;
+    color: #275d9b;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 5;
+}
+
+.flightsHeader-content_direction{
+    display: inline-block;
+    margin-left: 2%;
+}

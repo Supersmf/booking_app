@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import InfoBlock from './InfoBlock';
+// import FlightsHeader from '../FlightsHeader';
 import './confirmBooked.less';
 
 class ResultBooked extends Component {
@@ -36,6 +37,7 @@ class ResultBooked extends Component {
     } = this.state;
     return (
       <div className="confirmBooked-content">
+        {/* <FlightsHeader /> */}
         <div className="confirmBooked-content_totalBlock">
           <div className="confirmBooked-content_totalBlock_header" />
           <div className="confirmBooked-content_totalBlock_prices">

@@ -1,5 +1,3 @@
-/* eslint-disable prefer-arrow-callback */
-/* eslint-disable consistent-return */
 import mongoose from 'mongoose';
 import passport from 'koa-passport';
 import session from 'koa-session';

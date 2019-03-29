@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './header.less';
 
 const Header = () => (
@@ -20,8 +21,8 @@ const Header = () => (
         </div>
         <div className="header_content_contactBlock_groupBtn">
           <ul className="header_content_groupBtn_ul">
-            <li className="header_content_groupBtn_btn"><a href="https://#">Sign in</a></li>
-            <li className="header_content_groupBtn_btn"><a href="https://#">Agent</a></li>
+            <Link to="login" className="header_content_groupBtn_btn">Sign in</Link>
+            <Link to="agent" className="header_content_groupBtn_btn">Agent</Link>
           </ul>
         </div>
       </div>

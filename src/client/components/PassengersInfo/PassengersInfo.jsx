@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Passenger from './Passenger';
+import FlightsHeader from '../FlightsHeader';
 import './passengersInfo.less';
 
 class PassengersInfo extends Component {
@@ -62,6 +63,7 @@ class PassengersInfo extends Component {
     const { adults, children, infant } = this.state;
     return (
       <div className="passengersInfo-content">
+        <FlightsHeader />
         <form>
           {adults.map((info, i) => (
             <Passenger

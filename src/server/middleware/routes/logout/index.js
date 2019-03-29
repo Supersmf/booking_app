@@ -1,9 +1,9 @@
 import Router from 'koa-router';
-import loginController from './controller';
+import logoutController from './controller';
 
 const router = new Router();
 
 router
-  .post('/login', loginController.login);
+  .get('/logout', logoutController.logout);
 
 export default router.routes();

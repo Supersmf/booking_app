@@ -2,7 +2,8 @@ import passport from 'koa-passport';
 
 export default {
   async login(ctx) {
-    await passport.authenticate('login', (err, user) => {
+    console.log('authenticated: ', ctx.isAuthenticated());
+    await passport.authenticate('local', (err, user) => {
       if (err) { throw new Error(err); }
       if (!user) { return ctx.redirect('/login'); }
       ctx.logIn(user, (error) => {
@@ -10,8 +11,8 @@ export default {
         return ctx.redirect('/login');
       });
       // ctx.body = user;
-      console.log(user);
-      return ctx.redirect('/');
+      console.log('authenticated: ', ctx.isAuthenticated());
+      return ctx.redirect('/users');
     })(ctx);
   },
 };

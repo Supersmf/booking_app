@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import TicketBlock from './TicketBlock';
+import FlightsHeader from '../FlightsHeader';
 import './resultBooked.less';
 
 const ResultBooked = ({
@@ -12,6 +13,7 @@ const ResultBooked = ({
   },
 }) => (
   <div className="resultBooked-content">
+    <FlightsHeader />
     <div className="resultBooked-content_tickets">
       {tickets.map(ticket => (
         <TicketBlock {...ticket} key={ticket._id} />
