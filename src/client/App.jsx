@@ -1,19 +1,16 @@
-import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Content from './components/Content';
-// import ConfirmModelWindow from './components/ConfirmModelWindow';
+import React, { Fragment } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import MainPage from './components/MainPage';
+import LoginForm from './components/LoginForm';
 import './styles/App.less';
 
 const App = () => (
-  <div className="wrapper">
-    <Header />
-    <div className="cover">
-      <Content />
-    </div>
-    <Footer />
-    {/* <ConfirmModelWindow /> */}
-  </div>
+  <Fragment className="wrapper">
+    <Switch>
+      <Route exact path="/login" component={LoginForm} />
+      <Route path="/" component={MainPage} />
+    </Switch>
+  </Fragment>
 );
 
 export default App;

@@ -7,4 +7,6 @@
     "editor.wordWrap": "on",
     "files.eol": "\n",
     // "editor.tabSize": 2,
+    "csscomb.formatOnSave": true,
+    "csscomb.preset": "yandex",
 }
