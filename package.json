@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
     "lint": "eslint --ext .js --ext .jsx .",
-    "lint:fix": "eslint --fix",
+    "lint:fix": "eslint -- --fix",
     "startServer": "nodemon ./src/server/start.js"
   },
   "author": "",
@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "@material-ui/core": "^3.9.3",
     "axios": "^0.18.0",
     "font-awesome": "^4.7.0",
     "koa": "^2.7.0",
@@ -70,6 +71,7 @@
     "redux": "^4.0.1",
     "redux-actions": "^2.6.5",
     "redux-thunk": "^2.3.0",
+    "typeface-roboto": "0.0.54",
     "uninstall": "0.0.0"
   }
 }

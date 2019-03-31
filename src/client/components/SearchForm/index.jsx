@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import SearchForm from './SearchForm';
-import { addSearchData, clearTicket } from '../../actions/actionCreator';
+import { addSearchData } from '../../actions/actionCreator';
+import { clearTicket } from '../../actions/tickets';
 import { addPassenger } from '../../actions/passenger';
 
 const mapStateToProps = state => ({

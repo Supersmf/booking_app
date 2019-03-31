@@ -20,7 +20,7 @@ class Flight extends Component {
 
   renderLink = () => {
     const { tickets, isOneway } = this.props;
-    return (isOneway || tickets.length) ? '/search/result' : '/search/return';
+    return (isOneway || tickets.length) ? '/search/luggage' : '/search/return';
   };
 
   render() {

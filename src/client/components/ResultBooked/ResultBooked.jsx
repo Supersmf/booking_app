@@ -9,8 +9,10 @@ import './resultBooked.less';
 const ResultBooked = ({
   tickets, searchData: { adults, children, infant },
   prices: {
-    adultsPrice, childrenPrice, infantPrice, totalPrice,
-  },
+    adultsPrice, childrenPrice,
+    infantPrice, luggagePrice,
+    totalPrice,
+  }, luggageWeight,
 }) => (
   <div className="resultBooked-content">
     <FlightsHeader />
@@ -46,6 +48,10 @@ const ResultBooked = ({
             </div>
           )
           : ''}
+        <div className="resultBooked-content_totalBlock_item">
+          <p>{`> Luggage: ${luggageWeight} kg`}</p>
+          <p>{`${luggagePrice}$`}</p>
+        </div>
         <p className="resultBooked-content_totalBlock_total">
           {`Total: ${totalPrice}$`}
         </p>
@@ -63,6 +69,7 @@ ResultBooked.propTypes = {
   tickets: PropTypes.arrayOf(PropTypes.object).isRequired,
   searchData: PropTypes.instanceOf(Object).isRequired,
   prices: PropTypes.instanceOf(Object).isRequired,
+  luggageWeight: PropTypes.number.isRequired,
 };
 ResultBooked.defaultProps = {
 };

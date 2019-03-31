@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import { addTickets } from '../../actions/tickets';
+import { addLuggage } from '../../actions/luggage';
 import LuggageChoose from './LuggageChoose';
 
 const mapStateToProps = state => ({
   searchData: state.searchData,
+  luggage: state.luggage,
 });
 
 const mapDispatchToProps = dispatch => ({
-  dispatchAddTicket: data => dispatch(addTickets(data)),
+  dispatchAddLuggage: data => dispatch(addLuggage(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LuggageChoose);

@@ -7,6 +7,7 @@ import country from './country';
 import ticket from './ticket';
 import status from './status';
 import passenger from './passenger';
+import luggage from './luggage';
 
 const rootReducer = combineReducers({
   searchData,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   ticket,
   status,
   passenger,
+  luggage,
 });
 
 export default rootReducer;

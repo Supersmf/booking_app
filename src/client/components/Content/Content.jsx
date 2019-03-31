@@ -8,6 +8,7 @@ import SearchReturnFlight from '../SearchReturnFlight';
 import ResultBooked from '../ResultBooked';
 import PassengersInfo from '../PassengersInfo';
 import MultiСard from '../MultiСard';
+import LuggageChoose from '../LuggageChoose';
 import AdvantagesBlock from '../AdvantagesBlock';
 import ConfirmBooked from '../ConfirmBooked';
 import './content.less';
@@ -20,6 +21,7 @@ const Content = () => (
       <Route exact path="/search" component={SearchFlight} />
       <Route exact path="/search/return" component={SearchReturnFlight} />
       <Route exact path="/search/result" component={ResultBooked} />
+      <Route exact path="/search/luggage" component={LuggageChoose} />
       <Route exact path="/search/result/passengers" component={PassengersInfo} />
       <Route exact path="/search/result/passengers/confirm" component={ConfirmBooked} />
     </Switch>
