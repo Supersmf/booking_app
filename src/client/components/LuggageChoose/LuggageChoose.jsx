@@ -1,8 +1,10 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-underscore-dangle */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import FlightsHeader from '../FlightsHeader';
 import LuggageItem from './LuggageItem';
 import './luggageChoose.less';
@@ -18,13 +20,15 @@ class LuggageChoose extends Component {
 
   onAddLuggage = () => {
     this.setState(({ luggage }) => {
+      if (!luggage.length) {
+        return { luggage: [{ name: '', weight: undefined }] };
+      }
       const { name, weight } = luggage[luggage.length - 1];
       if (!name || !weight) {
         return { luggage };
       }
       const newluggage = [...luggage];
       newluggage.push({ name: '', weight: undefined });
-      // console.log(newluggage);
       return { luggage: newluggage };
     });
   }
@@ -32,8 +36,7 @@ class LuggageChoose extends Component {
   onAddData = (data, order, field) => {
     this.setState(({ luggage }) => {
       const newluggage = [...luggage];
-      newluggage[order][field] = +data || data;
-      // console.log(newluggage);
+      newluggage[order][field] = field === 'name' ? String(data) : +data || undefined;
       return { luggage: newluggage };
     });
   }
@@ -41,7 +44,10 @@ class LuggageChoose extends Component {
   onSubmit= () => {
     const { dispatchAddLuggage, history } = this.props;
     const { luggage } = this.state;
-    // console.log(luggage);
+    const { name, weight } = luggage[luggage.length - 1];
+    if (!name || !weight || isNaN(weight)) {
+      if (luggage.length > 1)luggage.pop();
+    }
     dispatchAddLuggage(luggage);
     history.push('/search/result');
   }
@@ -51,14 +57,21 @@ class LuggageChoose extends Component {
     return (
       <div className="luggageChoose-content">
         <FlightsHeader />
-        {luggage.map((item, index) => (
-          <LuggageItem
-            key={index}
-            luggage={item}
-            order={index}
-            onAddData={this.onAddData}
-          />
-        ))}
+        <TransitionGroup>
+          {luggage.map((item, index) => (
+            <CSSTransition
+              classNames="luggage-animation"
+              key={index}
+              timeout={500}
+            >
+              <LuggageItem
+                luggage={item}
+                order={index}
+                onAddData={this.onAddData}
+              />
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
         <button
           type="submit"
           className="luggageChoose-content_addBtn"
@@ -68,6 +81,7 @@ class LuggageChoose extends Component {
         </button>
         <button
           type="submit"
+          className="luggageChoose-content_submitBtn"
           onClick={this.onSubmit}
         >
           Next

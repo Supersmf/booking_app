@@ -6,7 +6,7 @@ const infantDiscount = 0.1;
 const freeWeight = 10;
 
 const totalWeight = luggage => (
-  luggage.reduce((sum, { weight }) => (sum + weight), 0));
+  luggage.reduce((sum, { weight }) => (sum + +weight || 0), 0));
 
 const calcPrice = (tickets, { adults, children, infant }, luggage) => {
   let adultsPrice = 0;
